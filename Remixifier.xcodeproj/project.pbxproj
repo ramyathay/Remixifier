@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE0567A41C49790200863A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567A31C49790200863A02 /* AppDelegate.swift */; };
+		BE0567A61C49790300863A02 /* RecordPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567A51C49790300863A02 /* RecordPageViewController.swift */; };
+		BE0567A91C49790400863A02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0567A71C49790400863A02 /* Main.storyboard */; };
+		BE0567AE1C49790500863A02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0567AC1C49790500863A02 /* LaunchScreen.storyboard */; };
+		BE0567B91C49790800863A02 /* RemixifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567B81C49790800863A02 /* RemixifierTests.swift */; };
+		BE0567C41C49790B00863A02 /* RemixifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567C31C49790B00863A02 /* RemixifierUITests.swift */; };
+		BE0567D21C49BC7900863A02 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567D11C49BC7800863A02 /* RecordedAudio.swift */; };
+		BE0567D41C4A24BE00863A02 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567D31C4A24BE00863A02 /* CancelButton.swift */; };
+		BE0567D61C4A254800863A02 /* RecordingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0567D51C4A254800863A02 /* RecordingListViewController.swift */; };
+		BEF9E56B1C4AE459001BA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF9E56A1C4AE459001BA367 /* Assets.xcassets */; };
+		BEF9E56D1C4AF2D8001BA367 /* PlayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF9E56C1C4AF2D8001BA367 /* PlayPageViewController.swift */; };
+		BEF9E56F1C4B09ED001BA367 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF9E56E1C4B09ED001BA367 /* Clip.swift */; };
+		BEF9E5711C4B09FB001BA367 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF9E5701C4B09FB001BA367 /* Database.swift */; };
+		BEF9E5751C4B0CA6001BA367 /* RecordingPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF9E5741C4B0CA6001BA367 /* RecordingPageViewControllerDelegate.swift */; };
+		BEF9E5781C4D69E6001BA367 /* 20160117131959.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BEF9E5761C4CE2A4001BA367 /* 20160117131959.m4a */; };
+		BEF9E5791C4D69E6001BA367 /* 20160117134854.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BEF9E5771C4CE2A4001BA367 /* 20160117134854.m4a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE0567B51C49790700863A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE0567981C49790100863A02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE05679F1C49790200863A02;
+			remoteInfo = Remixifier;
+		};
+		BE0567C01C49790A00863A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE0567981C49790100863A02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE05679F1C49790200863A02;
+			remoteInfo = Remixifier;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE0567A01C49790200863A02 /* Remixifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remixifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0567A31C49790200863A02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE0567A51C49790300863A02 /* RecordPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPageViewController.swift; sourceTree = "<group>"; };
+		BE0567A81C49790400863A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE0567AD1C49790500863A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE0567AF1C49790600863A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0567B41C49790700863A02 /* RemixifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemixifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0567B81C49790800863A02 /* RemixifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemixifierTests.swift; sourceTree = "<group>"; };
+		BE0567BA1C49790900863A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0567BF1C49790900863A02 /* RemixifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemixifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0567C31C49790B00863A02 /* RemixifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemixifierUITests.swift; sourceTree = "<group>"; };
+		BE0567C51C49790B00863A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0567D11C49BC7800863A02 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
+		BE0567D31C4A24BE00863A02 /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
+		BE0567D51C4A254800863A02 /* RecordingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingListViewController.swift; sourceTree = "<group>"; };
+		BEF9E56A1C4AE459001BA367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEF9E56C1C4AF2D8001BA367 /* PlayPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPageViewController.swift; sourceTree = "<group>"; };
+		BEF9E56E1C4B09ED001BA367 /* Clip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
+		BEF9E5701C4B09FB001BA367 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		BEF9E5741C4B0CA6001BA367 /* RecordingPageViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingPageViewControllerDelegate.swift; sourceTree = "<group>"; };
+		BEF9E5761C4CE2A4001BA367 /* 20160117131959.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 20160117131959.m4a; sourceTree = "<group>"; };
+		BEF9E5771C4CE2A4001BA367 /* 20160117134854.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 20160117134854.m4a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE05679D1C49790200863A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0567B11C49790700863A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0567BC1C49790900863A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE0567971C49790100863A02 = {
+			isa = PBXGroup;
+			children = (
+				BE0567A21C49790200863A02 /* Remixifier */,
+				BE0567B71C49790800863A02 /* RemixifierTests */,
+				BE0567C21C49790B00863A02 /* RemixifierUITests */,
+				BE0567A11C49790200863A02 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE0567A11C49790200863A02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE0567A01C49790200863A02 /* Remixifier.app */,
+				BE0567B41C49790700863A02 /* RemixifierTests.xctest */,
+				BE0567BF1C49790900863A02 /* RemixifierUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE0567A21C49790200863A02 /* Remixifier */ = {
+			isa = PBXGroup;
+			children = (
+				BEF9E5761C4CE2A4001BA367 /* 20160117131959.m4a */,
+				BEF9E5771C4CE2A4001BA367 /* 20160117134854.m4a */,
+				BE0567A31C49790200863A02 /* AppDelegate.swift */,
+				BE0567A71C49790400863A02 /* Main.storyboard */,
+				BE0567AC1C49790500863A02 /* LaunchScreen.storyboard */,
+				BE0567AF1C49790600863A02 /* Info.plist */,
+				BEF9E56A1C4AE459001BA367 /* Assets.xcassets */,
+				BE0567D31C4A24BE00863A02 /* CancelButton.swift */,
+				BE0567A51C49790300863A02 /* RecordPageViewController.swift */,
+				BE0567D51C4A254800863A02 /* RecordingListViewController.swift */,
+				BE0567D11C49BC7800863A02 /* RecordedAudio.swift */,
+				BEF9E56C1C4AF2D8001BA367 /* PlayPageViewController.swift */,
+				BEF9E56E1C4B09ED001BA367 /* Clip.swift */,
+				BEF9E5701C4B09FB001BA367 /* Database.swift */,
+				BEF9E5741C4B0CA6001BA367 /* RecordingPageViewControllerDelegate.swift */,
+			);
+			path = Remixifier;
+			sourceTree = "<group>";
+		};
+		BE0567B71C49790800863A02 /* RemixifierTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE0567B81C49790800863A02 /* RemixifierTests.swift */,
+				BE0567BA1C49790900863A02 /* Info.plist */,
+			);
+			path = RemixifierTests;
+			sourceTree = "<group>";
+		};
+		BE0567C21C49790B00863A02 /* RemixifierUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE0567C31C49790B00863A02 /* RemixifierUITests.swift */,
+				BE0567C51C49790B00863A02 /* Info.plist */,
+			);
+			path = RemixifierUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE05679F1C49790200863A02 /* Remixifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0567C81C49790B00863A02 /* Build configuration list for PBXNativeTarget "Remixifier" */;
+			buildPhases = (
+				BE05679C1C49790200863A02 /* Sources */,
+				BE05679D1C49790200863A02 /* Frameworks */,
+				BE05679E1C49790200863A02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Remixifier;
+			productName = Remixifier;
+			productReference = BE0567A01C49790200863A02 /* Remixifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE0567B31C49790700863A02 /* RemixifierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0567CB1C49790B00863A02 /* Build configuration list for PBXNativeTarget "RemixifierTests" */;
+			buildPhases = (
+				BE0567B01C49790700863A02 /* Sources */,
+				BE0567B11C49790700863A02 /* Frameworks */,
+				BE0567B21C49790700863A02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE0567B61C49790700863A02 /* PBXTargetDependency */,
+			);
+			name = RemixifierTests;
+			productName = RemixifierTests;
+			productReference = BE0567B41C49790700863A02 /* RemixifierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE0567BE1C49790900863A02 /* RemixifierUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE0567CE1C49790B00863A02 /* Build configuration list for PBXNativeTarget "RemixifierUITests" */;
+			buildPhases = (
+				BE0567BB1C49790900863A02 /* Sources */,
+				BE0567BC1C49790900863A02 /* Frameworks */,
+				BE0567BD1C49790900863A02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE0567C11C49790A00863A02 /* PBXTargetDependency */,
+			);
+			name = RemixifierUITests;
+			productName = RemixifierUITests;
+			productReference = BE0567BF1C49790900863A02 /* RemixifierUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE0567981C49790100863A02 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Christian Gonzalez";
+				TargetAttributes = {
+					BE05679F1C49790200863A02 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5R532AGNV4;
+					};
+					BE0567B31C49790700863A02 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5R532AGNV4;
+						TestTargetID = BE05679F1C49790200863A02;
+					};
+					BE0567BE1C49790900863A02 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5R532AGNV4;
+						TestTargetID = BE05679F1C49790200863A02;
+					};
+				};
+			};
+			buildConfigurationList = BE05679B1C49790100863A02 /* Build configuration list for PBXProject "Remixifier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE0567971C49790100863A02;
+			productRefGroup = BE0567A11C49790200863A02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE05679F1C49790200863A02 /* Remixifier */,
+				BE0567B31C49790700863A02 /* RemixifierTests */,
+				BE0567BE1C49790900863A02 /* RemixifierUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE05679E1C49790200863A02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF9E5781C4D69E6001BA367 /* 20160117131959.m4a in Resources */,
+				BEF9E5791C4D69E6001BA367 /* 20160117134854.m4a in Resources */,
+				BE0567AE1C49790500863A02 /* LaunchScreen.storyboard in Resources */,
+				BEF9E56B1C4AE459001BA367 /* Assets.xcassets in Resources */,
+				BE0567A91C49790400863A02 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0567B21C49790700863A02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0567BD1C49790900863A02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE05679C1C49790200863A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0567D21C49BC7900863A02 /* RecordedAudio.swift in Sources */,
+				BEF9E56F1C4B09ED001BA367 /* Clip.swift in Sources */,
+				BEF9E5751C4B0CA6001BA367 /* RecordingPageViewControllerDelegate.swift in Sources */,
+				BEF9E56D1C4AF2D8001BA367 /* PlayPageViewController.swift in Sources */,
+				BE0567A61C49790300863A02 /* RecordPageViewController.swift in Sources */,
+				BE0567D61C4A254800863A02 /* RecordingListViewController.swift in Sources */,
+				BE0567A41C49790200863A02 /* AppDelegate.swift in Sources */,
+				BEF9E5711C4B09FB001BA367 /* Database.swift in Sources */,
+				BE0567D41C4A24BE00863A02 /* CancelButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0567B01C49790700863A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0567B91C49790800863A02 /* RemixifierTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE0567BB1C49790900863A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE0567C41C49790B00863A02 /* RemixifierUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE0567B61C49790700863A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE05679F1C49790200863A02 /* Remixifier */;
+			targetProxy = BE0567B51C49790700863A02 /* PBXContainerItemProxy */;
+		};
+		BE0567C11C49790A00863A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE05679F1C49790200863A02 /* Remixifier */;
+			targetProxy = BE0567C01C49790A00863A02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE0567A71C49790400863A02 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE0567A81C49790400863A02 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE0567AC1C49790500863A02 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE0567AD1C49790500863A02 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE0567C61C49790B00863A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE0567C71C49790B00863A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE0567C91C49790B00863A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Remixifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gonzoGapps.Remixifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BE0567CA1C49790B00863A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Remixifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gonzoGapps.Remixifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BE0567CC1C49790B00863A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RemixifierTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gonzoGapps.RemixifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Remixifier.app/Remixifier";
+			};
+			name = Debug;
+		};
+		BE0567CD1C49790B00863A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RemixifierTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gonzoGapps.RemixifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Remixifier.app/Remixifier";
+			};
+			name = Release;
+		};
+		BE0567CF1C49790B00863A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RemixifierUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gonzoGapps.RemixifierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Remixifier;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		BE0567D01C49790B00863A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RemixifierUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gonzoGapps.RemixifierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Remixifier;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE05679B1C49790100863A02 /* Build configuration list for PBXProject "Remixifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0567C61C49790B00863A02 /* Debug */,
+				BE0567C71C49790B00863A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE0567C81C49790B00863A02 /* Build configuration list for PBXNativeTarget "Remixifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0567C91C49790B00863A02 /* Debug */,
+				BE0567CA1C49790B00863A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE0567CB1C49790B00863A02 /* Build configuration list for PBXNativeTarget "RemixifierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0567CC1C49790B00863A02 /* Debug */,
+				BE0567CD1C49790B00863A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE0567CE1C49790B00863A02 /* Build configuration list for PBXNativeTarget "RemixifierUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE0567CF1C49790B00863A02 /* Debug */,
+				BE0567D01C49790B00863A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE0567981C49790100863A02 /* Project object */;
+}
