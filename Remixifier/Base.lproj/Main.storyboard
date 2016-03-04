@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oMF-vj-1Hr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XoN-Gi-K0y">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Record-->
+        <!--Remixifier-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RecordPageViewController" customModule="Remixifier" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,7 +122,10 @@
                             <constraint firstItem="Ocd-vr-M6b" firstAttribute="top" secondItem="QE6-35-FBU" secondAttribute="bottom" constant="10" id="nn5-Jr-edR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Record" image="recordIcon" selectedImage="recordIcon" id="ESq-6O-lAp"/>
+                    <tabBarItem key="tabBarItem" title="Record" image="recordIcon" id="iSm-D7-DzS"/>
+                    <navigationItem key="navigationItem" title="Remixifier" id="rA0-Ju-1Uz">
+                        <barButtonItem key="rightBarButtonItem" title="Select more Songs" id="nXo-ZI-3IS"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="RecordingComplete" destination="Cns-Sk-Swj" id="VJI-Y9-exS"/>
                         <outlet property="cancelRecordingButton" destination="ge2-pq-oFQ" id="G9Q-BM-tYR"/>
@@ -136,12 +139,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="-586"/>
+            <point key="canvasLocation" x="2385" y="-586"/>
         </scene>
         <!--Choose-->
         <scene sceneID="7sA-G2-Fbz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Lq-tW-WD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Uux-oE-mTp" customClass="RecordingListViewController" customModule="Remixifier" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cmd-QX-Yah"/>
@@ -162,11 +164,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="584" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="WxI-TP-jUF" id="qTS-Cc-IaD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="39"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kHP-rv-une">
-                                                            <rect key="frame" x="15" y="0.0" width="554" height="39"/>
+                                                            <rect key="frame" x="15" y="0.0" width="554" height="39.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -210,6 +212,9 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="playFinalAudioFileButton:" destination="Uux-oE-mTp" eventType="touchUpInside" id="WM4-XZ-sSf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -230,8 +235,9 @@
                         <outlet property="recordedClipsTable" destination="8JC-Il-ndh" id="ZM7-tv-7bM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Lq-tW-WD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="209"/>
+            <point key="canvasLocation" x="2368" y="-1382"/>
         </scene>
         <!--Play-->
         <scene sceneID="0bK-87-l2f">
@@ -306,70 +312,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYG-Yq-Xnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="1115"/>
-        </scene>
-        <!--Choose-->
-        <scene sceneID="Wex-mM-TGQ">
-            <objects>
-                <tableViewController id="K6G-Se-AXQ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPQ-tX-x2R">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="audioClipCell" id="0nS-mC-9Ek">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0nS-mC-9Ek" id="Duc-lk-RDr">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cgQ-IX-EfD">
-                                            <rect key="frame" x="17" y="11" width="22" height="22"/>
-                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                            <state key="normal" title="Button"/>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="cgQ-IX-EfD" firstAttribute="leading" secondItem="Duc-lk-RDr" secondAttribute="leadingMargin" constant="9" id="6Qy-HD-zde"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="cgQ-IX-EfD" secondAttribute="bottom" constant="2" id="FFO-Mh-0AW"/>
-                                        <constraint firstItem="cgQ-IX-EfD" firstAttribute="top" secondItem="Duc-lk-RDr" secondAttribute="topMargin" constant="3" id="gfG-Rg-SlV"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="K6G-Se-AXQ" id="AIg-vD-49H"/>
-                            <outlet property="delegate" destination="K6G-Se-AXQ" id="f36-FU-pX5"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Choose" image="checkIcon" id="7a0-1I-Y1m"/>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5QG-Sf-R6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="867" y="929"/>
+            <point key="canvasLocation" x="2110" y="226"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="eIb-Al-HBo">
+        <scene sceneID="JcP-cf-ZE3">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="oMF-vj-1Hr" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XoN-Gi-K0y" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="iFg-K0-XBO">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W3W-ae-RHD">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bcS-Oa-Ay5"/>
-                        <segue destination="Uux-oE-mTp" kind="relationship" relationship="viewControllers" id="RRm-as-67R"/>
-                        <segue destination="EHJ-fh-TKa" kind="relationship" relationship="viewControllers" id="lbw-pm-QOP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TCI-zB-vZL"/>
+                        <segue destination="Uux-oE-mTp" kind="relationship" relationship="viewControllers" id="aCy-1q-kWB"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bcr-49-FZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qee-23-Mtb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="265"/>
+            <point key="canvasLocation" x="1614" y="-624"/>
         </scene>
     </scenes>
     <resources>

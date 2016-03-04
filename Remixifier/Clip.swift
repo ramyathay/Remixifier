@@ -2,42 +2,40 @@
 //  Clip.swift
 //  Remixifier
 //
-//  Created by Christian Gonzalez on 1/16/16.
-//  Copyright © 2016 Christian Gonzalez. All rights reserved.
-//
 
 import Foundation
 class Clip: NSObject, NSCoding {
     static var key: String = "Clips"
-    static var schema: String = "theList"
+    static var schema: String = "recordClips2"
 //    static var PathWay = NSURL()
     var objective: String
+    var audioURL: NSURL
     var createdAt: NSDate
-//    var path: NSURL
+    
     // use this init for creating a new Task
-    init(obj: String) {
+    init(obj: String,audio_url: NSURL) {
         objective = obj
         createdAt = NSDate()
-//        path = String
+        audioURL = audio_url
     }
     // MARK: - NSCoding protocol
     // used for encoding (saving) objects
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(objective, forKey: "objective")
         aCoder.encodeObject(createdAt, forKey: "createdAt")
-//        aCoder.encodeObject(path, forKey: "path")
+        aCoder.encodeObject(audioURL,forKey: "audioURL")
     }
     // used for decoding (loading) objects
     required init?(coder aDecoder: NSCoder) {
         objective = aDecoder.decodeObjectForKey("objective") as! String
         createdAt = aDecoder.decodeObjectForKey("createdAt") as! NSDate
-//        path = aDecoder.decodeObjectForKey("path") as! NSURL!
+        audioURL = aDecoder.decodeObjectForKey("audioURL") as! NSURL
         super.init()
     }
     // MARK: - Queries
     static func all() -> [Clip] {
         var clips = [Clip]()
-        let path = Database.dataFilePath("theList")
+        let path = Database.dataFilePath("recordClips2")
         if NSFileManager.defaultManager().fileExistsAtPath(path) {
             if let data = NSData(contentsOfFile: path) {
                 let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)

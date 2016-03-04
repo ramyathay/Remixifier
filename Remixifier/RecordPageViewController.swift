@@ -2,15 +2,12 @@
 //  ViewController.swift
 //  Remixifier
 //
-//  Created by Christian Gonzalez on 1/15/16.
-//  Copyright © 2016 Christian Gonzalez. All rights reserved.
-//
 
 import Foundation
 import UIKit
 import AVFoundation
 
-class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudioRecorderDelegate{
 
 //    
 //    @IBOutlet weak var recordButton: UIButton!
@@ -19,28 +16,36 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
     @IBOutlet weak var stopButtonOutlet: UIButton!
     @IBOutlet weak var recordButtonOutlet: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    
     @IBOutlet weak var playButton: UIButton!
-    
     @IBOutlet weak var RecordingComplete: UILabel!
 //    @IBOutlet weak var cancelRecordingButton: UIButton!
-    
     @IBOutlet weak var cancelRecordingButton: UIButton!
-   
-    
     @IBOutlet weak var recordingProgress: UIProgressView!
-    
-    
+
     
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
     var audioEngine:AVAudioEngine!
     var audioFile:AVAudioFile!
-    var fileName = "clip.caf"
     var recordedAudio: RecordedAudio!
-    var progressBarTimer:NSTimer!
     var clipToAdd = Clip?()
+    var clipCreatedAt: NSDate = NSDate()
     weak var delegate: RecordingPageViewControllerDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //only show the logo and the record button
+        RecordingComplete.hidden = true
+        cancelRecordingButton.hidden = true
+        saveRecordingButton.hidden = true
+        stopButtonOutlet.hidden = true
+        playButtonOutlet.hidden = true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     @IBOutlet weak var saveRecordingButton: UIButton!
     
@@ -48,10 +53,16 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
     
         RecordingComplete.text = "Saved!"
         //call to save into DB, transition into next page, other tell user to press the next tab button
-        let clip = Clip(obj: recordedAudio.title)
-//            clip.objective = String(clip.createdAt)
-            delegate?.recordPageViewController(self, didFinishAddingClip: clip)
-            clip.save()
+        let clip = Clip(obj: String(recordedAudio!.title),audio_url: recordedAudio.filePathURL)
+        delegate?.recordPageViewController(self, didFinishAddingClip: clip)
+        clip.save()
+        cancelRecordingButton.hidden = true
+        saveRecordingButton.hidden = true
+        recordButtonOutlet.hidden = false
+        stopButton.hidden = true
+        RecordingComplete.hidden = true
+        playButton.hidden = true
+        
     }
     
     @IBAction func CancelRecording(sender: UIButton) {
@@ -63,10 +74,8 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
         //hide the stop and play buttons
         stopButtonOutlet.hidden = true
         playButtonOutlet.hidden = true
-        //show the record button, back to startx
+        //show the record button, back to start
         recordButtonOutlet.hidden = false
-
-        
     }
     
    
@@ -84,11 +93,12 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
                     //set category and activate recorder session
                     try! audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
                     try! audioSession.setActive(true)
+                    try! audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
                     
                     
                     //get documnets directory
                     let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-                    let fullPath = documentsDirectory.stringByAppendingPathComponent("snippet.caf")
+                    let fullPath = documentsDirectory.stringByAppendingPathComponent(self.shortDate)
                     let url = NSURL(fileURLWithPath: fullPath)
                     
                     //create AnyObject of settings
@@ -100,35 +110,18 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
                         AVLinearPCMBitDepthKey:16,
                         AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
                     ]
-                    print(url)
+                    print("URl of the audio clip",url)
                     //record
                     try! self.audioRecorder = AVAudioRecorder(URL: url, settings: settings)
                     self.audioRecorder?.delegate = self
                     self.audioRecorder?.prepareToRecord()
-                    
-                    do {
-                        let soundPlayer = try AVAudioPlayer(contentsOfURL: url)
-                        soundPlayer.delegate = self
-                        soundPlayer.prepareToPlay()
-                        soundPlayer.volume = 200.0
-                    }
-                    catch let error as NSError {
-                        print("Error  with \(error.localizedDescription)")
-                    }
-                    //                    if !self.stopButtonLabel.enabled {
-                    //                        self.audioRecorder?.record()
-                    //                    }
-                    //                    else {
-                    //                        self.audioRecorder?.stop()
-                    //                    }
                     self.audioRecorder?.recordForDuration(5.0)
 
                     self.recordButtonOutlet.hidden = true
                     //show the stop button to stop
                     self.stopButtonOutlet.hidden = false
-
-                   
-                } else{
+                }
+                else{
                     print("not granted")
                 }
                 
@@ -136,15 +129,13 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
         }
     }
     
-    
-    
-
+    //Conforms to AVAudioRecorderDelegate protocol :-
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         //save the recorded audio
         recordedAudio = RecordedAudio()
         recordedAudio.filePathURL = recorder.url
-        recordedAudio.title = String(recorder.url.lastPathComponent)
-        print(recordedAudio, "IS THE THING RECORDED")
+        recordedAudio.title = String((recorder.url.lastPathComponent)!)
+        print("The recorded audio is",recordedAudio.title)
 
         self.RecordingComplete.hidden = false
                                 //show the cancel button to restart if desired
@@ -156,9 +147,6 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
         self.stopButtonOutlet.hidden = true
                                 //show the play button
         self.playButtonOutlet.hidden = false
-//        recordingProgress.progress = 0
-//        recordingProgress.hidden = true
-
     }
     
     @IBAction func stopRecordingOnTouch(sender: UIButton) {
@@ -185,32 +173,24 @@ class RecordPageViewController: UIViewController,  AVAudioPlayerDelegate, AVAudi
             self.audioPlayer = try AVAudioPlayer(contentsOfURL: (audioRecorder?.url)!)
             audioPlayer?.delegate = self
             audioPlayer?.prepareToPlay()
-
             audioPlayer?.play()
             
         }
         catch let error as NSError {
-            print("Error while playinf \(error.localizedDescription)")
+            print("Error while playing \(error.localizedDescription)")
         }
     }
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //only show the logo and the record button
-        RecordingComplete.hidden = true
-        cancelRecordingButton.hidden = true
-        saveRecordingButton.hidden = true
-        stopButtonOutlet.hidden = true
-        playButtonOutlet.hidden = true
-
+    var shortDate: String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-yy-ss"
+        return dateFormatter.stringFromDate(NSDate())
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    func didFinishAddingClip(){
+        
+    }
     
 // 
 //func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder!, error: NSError!) {
