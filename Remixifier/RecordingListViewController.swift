@@ -7,7 +7,7 @@ import UIKit
 import AVFoundation
 
 
-class RecordingListViewController:  UIViewController, AVAudioPlayerDelegate, UITableViewDataSource, UITableViewDelegate {
+class RecordingListViewController:  UIViewController, AVAudioPlayerDelegate, UITableViewDataSource, UITableViewDelegate,CancelButtonDelegate {
     
     
     @IBOutlet weak var recordedClipsTable: UITableView!
@@ -38,27 +38,12 @@ class RecordingListViewController:  UIViewController, AVAudioPlayerDelegate, UIT
     }
     
     
-    @IBAction func playFinalAudioFileButton(sender: UIButton) {
-        var i = 0
-        let queuePlayer = AVQueuePlayer()
-        print("adding to queue")
-        while i < userSelectedAudioClips.count {
-            let playerItem = AVPlayerItem(URL: userSelectedAudioClips[i])
-            queuePlayer.insertItem(playerItem, afterItem: nil)
-            queuePlayer.play()
-            i++
-        }
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCellWithIdentifier("audioClipCell", forIndexPath: indexPath)
-        print("Obj is",(clips[indexPath.row].objective))
         let cell_text = clips[indexPath.row].objective
         cell.textLabel!.text = cell_text
-        print(cell,cell_text)
        
-
         if cell.selected
         {
             cell.selected = false
@@ -83,66 +68,66 @@ class RecordingListViewController:  UIViewController, AVAudioPlayerDelegate, UIT
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         print("Selected cell is",cell?.textLabel?.text,cell)
+        
         if cell!.selected
         {
             cell!.selected = false
             if cell!.accessoryType == UITableViewCellAccessoryType.None
             {
                 cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+                
+                let selectedAudioClipURL = audioClipsURL[indexPath.row].audioURL
+                userSelectedAudioClips.append(selectedAudioClipURL)
+                print("SelectedAudioClip ",selectedAudioClipURL)
+                
+                let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+                let fullPath = documentsDirectory.stringByAppendingPathComponent((clips[indexPath.row].objective))
+                let url = NSURL(fileURLWithPath: fullPath)
+                print("Newly formed song url",url)
+                
+                let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
+                try! audioSession.setCategory(AVAudioSessionCategoryPlayback)
+                try! audioSession.setActive(true)
+                //try! audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
+                
+                do {
+                    self.audioPlayer = try AVAudioPlayer(contentsOfURL: url)
+                    audioPlayer?.delegate = self
+                    audioPlayer?.prepareToPlay()
+                    audioPlayer?.play()
+                    audioPlayer?.volume = 1000
+                }
+                catch let error as NSError {
+                    print("Error while playing \(error.localizedDescription)")
+                }
+
             }
             else
             {
                 cell!.accessoryType = UITableViewCellAccessoryType.None
             }
         }
-        
-        let fileURL = clips[indexPath.row].audioURL
-        userSelectedAudioClips.append(fileURL)
-        print("Selected songs array",userSelectedAudioClips)
-        
-        let selectedAudioClipURL = audioClipsURL[indexPath.row].audioURL
-        print("SelectedAudioClip ",selectedAudioClipURL)
-        
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let fullPath = documentsDirectory.stringByAppendingPathComponent((clips[indexPath.row].objective))
-        let url = NSURL(fileURLWithPath: fullPath)
-        print("Newly formed song url",url)
-        
-        let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setCategory(AVAudioSessionCategoryPlayback)
-        try! audioSession.setActive(true)
-        //try! audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
-        
-        do {
-            //self.audioPlayer = try AVAudioPlayer(contentsOfURL:(selectedAudioClipURL))
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: url)
-            audioPlayer?.delegate = self
-            audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
-            audioPlayer?.volume = 1000 
-        }
-        catch let error as NSError {
-            print("Error while playing \(error.localizedDescription)")
-        }
     }
+    
+    @IBAction func remixSelectedSongsButton(sender: UIButton) {
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "playSegueIdentifier" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! PlayPageViewController
+            controller.cancelButtonDelegate = self
+            controller.userSelectedAudioClips = userSelectedAudioClips
+        } //Clear the USerSelectedArray so that when User comes back to this page he gets an empty array to insert new Selected values
+        userSelectedAudioClips.removeAll()
+    }
+    
+    func cancelButtonPressedFrom(controller: UIViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
 
 
 
-//        while i < audioClipsNames.count {
-//            if let bundlePath = NSBundle.mainBundle().pathForResource(audioClipsNames[i], ofType: "m4a") {
-//                let fileURL = NSURL(fileURLWithPath: bundlePath)
-//                do {
-//                    audioClipsURL.append(fileURL)
-//                    print("Audio clip array contains \(audioClipsURL[i])")
-//                }
-//                catch let error as NSError {
-//                    print("Error while playing \(error.localizedDescription)")
-//                }
-//            }
-//            else {
-//                print("This file does not exists in the database")
-//            }
-//            i++
-//
-//        }
